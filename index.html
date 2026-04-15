@@ -15,6 +15,10 @@
   --grid-light: #e0e0e0;
   --homework: #ea37a3;
   --homework-light: #fdf1f5;
+  --optionA: #2e86ab;
+  --optionA-light: #e8f4f8;
+  --optionB: #a23b72;
+  --optionB-light: #fdf0f6;
   --warm-bg: #f9f6f1;
   --warm-border: #c9a227;
   --warm-accent: #8b7355;
@@ -401,6 +405,208 @@ p {
   }
 }
 
+/* Method choice boxes */
+.method-choice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.method-option {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.method-option::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+}
+
+.method-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.method-option.option-a {
+  border: 2px solid var(--optionA);
+}
+
+.method-option.option-a::before {
+  background: var(--optionA);
+}
+
+.method-option.option-b {
+  border: 2px solid var(--optionB);
+}
+
+.method-option.option-b::before {
+  background: var(--optionB);
+}
+
+.method-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.method-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.option-a .method-icon {
+  background: var(--optionA-light);
+  border: 2px solid var(--optionA);
+}
+
+.option-b .method-icon {
+  background: var(--optionB-light);
+  border: 2px solid var(--optionB);
+}
+
+.method-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.option-a .method-title {
+  color: var(--optionA);
+}
+
+.option-b .method-title {
+  color: var(--optionB);
+}
+
+.method-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.method-description {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.method-best-for {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.option-a .method-best-for {
+  background: var(--optionA-light);
+  border-left: 4px solid var(--optionA);
+}
+
+.option-b .method-best-for {
+  background: var(--optionB-light);
+  border-left: 4px solid var(--optionB);
+}
+
+.method-best-for strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+.option-a .method-best-for strong {
+  color: var(--optionA);
+}
+
+.option-b .method-best-for strong {
+  color: var(--optionB);
+}
+
+.method-best-for ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+}
+
+.method-best-for li {
+  margin-bottom: 4px;
+}
+
+/* Decision helper */
+.decision-helper {
+  background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 25px 0;
+  text-align: center;
+}
+
+.decision-helper h3 {
+  color: var(--secondary);
+  margin-top: 0;
+}
+
+.decision-question {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.decision-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.decision-btn {
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.decision-btn:hover {
+  transform: translateY(-3px);
+}
+
+.decision-btn.btn-a {
+  background: var(--optionA);
+  color: white;
+}
+
+.decision-btn.btn-a:hover {
+  box-shadow: 0 5px 20px rgba(46, 134, 171, 0.4);
+}
+
+.decision-btn.btn-b {
+  background: var(--optionB);
+  color: white;
+}
+
+.decision-btn.btn-b:hover {
+  box-shadow: 0 5px 20px rgba(162, 59, 114, 0.4);
+}
+
 /* Thinking box */
 .thinking-box {
   background: var(--homework-light);
@@ -725,7 +931,7 @@ footer {
   
   <div class="banner">
     <h2>HOMEWORK: Make Your Letters</h2>
-    <p>Create textured letters for your portfolio titles</p>
+    <p>Make textured letters for your portfolio titles — bring them to class</p>
   </div>
 
   <div class="connection-box">
@@ -743,8 +949,8 @@ footer {
   </div>
 
   <div class="preview-box">
-    <h3>🎨 What We Will Make</h3>
-    <p>Make <strong>special letters by hand</strong> to use as titles in your portfolio</p>
+    <h3>🎨 What You Will Make</h3>
+    <p>You will make <strong>special letters by hand</strong>. You will use these letters as titles in your portfolio.</p>
     
     <div class="preview-gallery">
       <figure class="preview-image">
@@ -763,6 +969,11 @@ footer {
     <h3>The Steps</h3>
     <div class="process-steps">
       <div class="process-step">
+        <div class="process-icon">🤔</div>
+        <p>Choose Option</p>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="process-step">
         <div class="process-icon">📄</div>
         <p>Get Template</p>
       </div>
@@ -776,22 +987,78 @@ footer {
         <div class="process-icon">📤</div>
         <p>Scan</p>
       </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-icon">✨</div>
-        <p>Use in Portfolio</p>
+    </div>
+  </div>
+
+  <h2>⚡ Important: Choose Your Option First!</h2>
+  <p>In class, you will use your letters in <strong>one of two ways</strong>. You need to decide now because it changes what letters you make.</p>
+
+  <div class="method-choice">
+    <div class="method-option option-a">
+      <div class="method-header">
+        <div class="method-icon">🔤</div>
+        <div>
+          <h4 class="method-title">Option A: Make a Font</h4>
+          <p class="method-subtitle">Upload to Calligraphr → Get a font file</p>
+        </div>
+      </div>
+      <p class="method-description">Your letters become a font you can type with. Calligraphr will change your letters into a font file. You can then type any word.</p>
+      <div class="method-best-for">
+        <strong>✓ Good for:</strong>
+        <ul>
+          <li>Clean, neat letters</li>
+          <li>Drawn or painted letters</li>
+          <li>When you want to type many words</li>
+        </ul>
+      </div>
+      <div style="background: #fff3cd; padding: 12px; border-radius: 6px; margin-top: 10px;">
+        <strong style="color: #856404;">📝 What letters to make:</strong>
+        <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #856404;">Make <strong>A to Z</strong> (all 26 letters) — you need the full alphabet to type any word</p>
+      </div>
+    </div>
+
+    <div class="method-option option-b">
+      <div class="method-header">
+        <div class="method-icon">✂️</div>
+        <div>
+          <h4 class="method-title">Option B: Cut Out in Photoshop</h4>
+          <p class="method-subtitle">Copy and paste each letter</p>
+        </div>
+      </div>
+      <p class="method-description">You cut out each letter in Photoshop and put them together. This keeps all the texture and marks from stamps or collage.</p>
+      <div class="method-best-for">
+        <strong>✓ Good for:</strong>
+        <ul>
+          <li>Heavy texture and ink marks</li>
+          <li>Collage letters from magazines</li>
+          <li>Stamps with messy ink</li>
+        </ul>
+      </div>
+      <div style="background: #fff3cd; padding: 12px; border-radius: 6px; margin-top: 10px;">
+        <strong style="color: #856404;">📝 What letters to make:</strong>
+        <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #856404;">Make <strong>only the letters you need</strong> for your title word(s) — for example, "TEXTURE" needs T, E, X, U, R</p>
       </div>
     </div>
   </div>
 
-  <h2>How to Make Your Letters</h2>
-  <p>Pick <strong>one way</strong> to make your letters. You can also mix different ways:</p>
+  <div class="decision-helper">
+    <h3>🤔 Which Should I Choose?</h3>
+    <p class="decision-question">Do you want to keep all the texture, ink marks, and messy parts in your letters?</p>
+    <div class="decision-buttons">
+      <button class="decision-btn btn-b" onclick="showDecision('b')">Yes, keep all texture → Option B</button>
+      <button class="decision-btn btn-a" onclick="showDecision('a')">No, clean letters are OK → Option A</button>
+    </div>
+    <p id="decision-result" style="margin-top: 15px; font-weight: bold; display: none;"></p>
+  </div>
+
+  <h2>Ways to Make Your Letters</h2>
+  <p>Choose <strong>one way</strong> to make your letters. You can also mix different ways:</p>
   
   <div class="options-grid">
     <div class="option-card">
       <div class="icon">🔠</div>
       <h4>Letter Stamps</h4>
-      <p>Use stamp letters with ink</p>
+      <p>Use stamps with ink</p>
     </div>
     <div class="option-card">
       <div class="icon">🧽</div>
@@ -826,31 +1093,48 @@ footer {
     <div class="step-box">
       <div class="step-header">
         <div class="step-number">1</div>
-        <div>Choose Your Words</div>
+        <div>Decide Your Option (A or B)</div>
       </div>
       <div class="step-content">
-        <p>Think about what title you want for your portfolio page:</p>
+        <p>Look at the two options above and decide:</p>
         <ul>
-          <li>Pick <strong>short words</strong> (1-2 words is best)</li>
-          <li>Choose words that match your project theme</li>
+          <li><strong style="color: var(--optionA);">Option A (Font):</strong> You need to make <strong>all 26 letters</strong> (A to Z)</li>
+          <li><strong style="color: var(--optionB);">Option B (Photoshop):</strong> You only need to make <strong>the letters in your title word</strong></li>
+        </ul>
+        <p><strong>Write down your choice!</strong> You will tell your teacher in class.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div>Choose Your Title Words (Option B only)</div>
+      </div>
+      <div class="step-content">
+        <p>If you chose <strong style="color: var(--optionB);">Option B</strong>, think about what title you want for your portfolio page:</p>
+        <ul>
+          <li>Choose <strong>short words</strong> — 1 or 2 words is best</li>
+          <li>Choose words that match your project</li>
           <li>Write down <strong>which letters you need</strong></li>
         </ul>
         <p><strong>Good examples:</strong> "FOUND", "TEXTURE", "COLOUR", "MAKING", "PROCESS"</p>
+        <p style="color: #666; font-size: 0.95rem;"><em>If you chose Option A, skip this step — you will make all 26 letters.</em></p>
       </div>
     </div>
     
     <div class="step-box">
       <div class="step-header">
-        <div class="step-number">2</div>
+        <div class="step-number">3</div>
         <div>Get Your Template</div>
       </div>
       <div class="step-content">
-        <p>Download a template with boxes for your letters:</p>
+        <p>Download a template from Calligraphr. This has boxes for your letters:</p>
         <ul>
           <li>Go to <a href="https://www.calligraphr.com" target="_blank" style="color: var(--primary); font-weight: 600;">Calligraphr.com</a></li>
-          <li>Log in (use your account from Session 1)</li>
+          <li>Log in with your account from Session 1</li>
           <li>Click <strong>"Templates"</strong></li>
-          <li>Choose <strong>only the letters you need</strong></li>
+          <li><strong style="color: var(--optionA);">Option A:</strong> Choose <strong>all letters A-Z</strong></li>
+          <li><strong style="color: var(--optionB);">Option B:</strong> Choose <strong>only the letters you need</strong></li>
           <li>Download as <strong>PDF</strong></li>
           <li>Print on <strong>white paper</strong></li>
         </ul>
@@ -860,11 +1144,11 @@ footer {
     
     <div class="step-box">
       <div class="step-header">
-        <div class="step-number">3</div>
+        <div class="step-number">4</div>
         <div>Get Your Materials</div>
       </div>
       <div class="step-content">
-        <p>Get what you need for your chosen method:</p>
+        <p>Get what you need for your chosen way:</p>
         
         <div class="materials-box">
           <h4>🎨 What You Need</h4>
@@ -881,7 +1165,7 @@ footer {
     
     <div class="step-box">
       <div class="step-header">
-        <div class="step-number">4</div>
+        <div class="step-number">5</div>
         <div>Make Your Letters</div>
       </div>
       <div class="step-content">
@@ -897,14 +1181,14 @@ footer {
     
     <div class="step-box">
       <div class="step-header">
-        <div class="step-number">5</div>
+        <div class="step-number">6</div>
         <div>Scan Your Template</div>
       </div>
       <div class="step-content">
         <p>Make a digital copy of your finished template:</p>
         <ul>
-          <li>Use a scanner at <strong>300 DPI</strong> (high quality)</li>
-          <li>Or use a phone app (Adobe Scan or Microsoft Lens)</li>
+          <li>Use a scanner — choose <strong>300 DPI</strong> (this means high quality)</li>
+          <li>Or use a phone app: <strong>Adobe Scan</strong> or <strong>Microsoft Lens</strong></li>
           <li>Save as <strong>JPEG or PNG</strong></li>
           <li>Check it is <strong>clear and straight</strong></li>
         </ul>
@@ -915,11 +1199,11 @@ footer {
   <div class="warning-box">
     <div class="warning-icon">⚠️</div>
     <div class="warning-text">
-      <h4>Important: Stamps Are Backwards!</h4>
-      <p>When you use stamps, the letter on the stamp is <strong>the wrong way round</strong>. This is normal!</p>
+      <h4>Important: Stamps Look Backwards!</h4>
+      <p>When you look at a stamp, the letter looks <strong>the wrong way</strong>. This is normal! When you press it on paper, it prints the right way.</p>
       <ul>
         <li>If you make your own stamp, <strong>draw the letter backwards</strong></li>
-        <li><strong>Test on paper first</strong> before using the template</li>
+        <li><strong>Test on paper first</strong> before using your template</li>
         <li>Press hard and flat for a <strong>good print</strong></li>
       </ul>
     </div>
@@ -932,9 +1216,9 @@ footer {
       <ul>
         <li><strong>Texture is good:</strong> Uneven ink and brush marks look interesting</li>
         <li><strong>Dark on white:</strong> Dark letters on white paper scan best</li>
-        <li><strong>Protect your table:</strong> Put newspaper under your work</li>
-        <li><strong>Make extras:</strong> Make 2-3 of each letter so you can choose the best one</li>
-        <li><strong>Wait to dry:</strong> Make sure everything is fully dry before scanning</li>
+        <li><strong>Protect your table:</strong> Put old newspaper under your work</li>
+        <li><strong>Make extras:</strong> Make 2 or 3 of each letter — then choose the best one</li>
+        <li><strong>Wait to dry:</strong> Make sure everything is fully dry before you scan</li>
       </ul>
     </div>
   </div>
@@ -943,8 +1227,8 @@ footer {
     <h3>💭 Think About Your Style</h3>
     <p>Before you start, think about how you want your letters to look:</p>
     <ul>
-      <li>Do you want <strong>bold and strong</strong> or <strong>soft and delicate</strong>?</li>
-      <li>Does your method match your <strong>project theme</strong>?</li>
+      <li>Do you want <strong>bold and strong</strong> or <strong>soft and light</strong>?</li>
+      <li>Does your way match your <strong>project idea</strong>?</li>
       <li>How will these letters look with your <strong>other portfolio work</strong>?</li>
     </ul>
   </div>
@@ -955,15 +1239,23 @@ footer {
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Chose my words</div>
-        <div class="checklist-desc">I know what title I want to make</div>
+        <div class="checklist-label">I chose my option (A or B)</div>
+        <div class="checklist-desc">I know if I'm making a font or cutting out in Photoshop</div>
       </div>
     </div>
     
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Got my template</div>
+        <div class="checklist-label">I know which letters to make</div>
+        <div class="checklist-desc">Option A: all 26 letters / Option B: only my title letters</div>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
+      <div class="checklist-text">
+        <div class="checklist-label">I got my template</div>
         <div class="checklist-desc">Downloaded and printed from Calligraphr</div>
       </div>
     </div>
@@ -971,7 +1263,7 @@ footer {
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Got my materials</div>
+        <div class="checklist-label">I got my materials</div>
         <div class="checklist-desc">Stamps, paint, scissors, or pens ready</div>
       </div>
     </div>
@@ -979,7 +1271,7 @@ footer {
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Made all my letters</div>
+        <div class="checklist-label">I made all my letters</div>
         <div class="checklist-desc">Each letter is in its box</div>
       </div>
     </div>
@@ -987,7 +1279,7 @@ footer {
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Let everything dry</div>
+        <div class="checklist-label">I let everything dry</div>
         <div class="checklist-desc">No wet ink or paint</div>
       </div>
     </div>
@@ -995,7 +1287,7 @@ footer {
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Scanned my template</div>
+        <div class="checklist-label">I scanned my template</div>
         <div class="checklist-desc">Clear scan saved as JPEG or PNG</div>
       </div>
     </div>
@@ -1003,7 +1295,7 @@ footer {
     <div class="checklist-item">
       <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
       <div class="checklist-text">
-        <div class="checklist-label">Saved my file</div>
+        <div class="checklist-label">I saved my file</div>
         <div class="checklist-desc">On phone, USB, or cloud</div>
       </div>
     </div>
@@ -1011,10 +1303,11 @@ footer {
   
   <div class="submission-box">
     <h3>📚 Bring to Class</h3>
-    <p>You need these things for the workshop:</p>
+    <p>You need these things for the lesson:</p>
     <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; display: inline-block;">
       <li style="margin-bottom: 12px;">📄 Your paper template with hand-made letters</li>
       <li style="margin-bottom: 12px;">📱 Your scan file (on phone, USB, or cloud)</li>
+      <li style="margin-bottom: 12px;">📝 Your choice: Option A or Option B</li>
       <li style="margin-bottom: 12px;">🎨 Your materials (if you want to make more letters)</li>
     </ul>
     <div class="submission-date">See you in class! ✨</div>
@@ -1054,6 +1347,18 @@ function toggleChecked(element) {
   const checkboxes = document.querySelectorAll('.checklist-checkbox');
   const states = Array.from(checkboxes).map(checkbox => checkbox.classList.contains('checked'));
   localStorage.setItem('subheadings-homework-checklist', JSON.stringify(states));
+}
+
+function showDecision(option) {
+  const result = document.getElementById('decision-result');
+  result.style.display = 'block';
+  if (option === 'a') {
+    result.innerHTML = '✅ <span style="color: var(--optionA);">Option A</span> — Make all 26 letters (A to Z) for your font';
+    result.style.color = 'var(--optionA)';
+  } else {
+    result.innerHTML = '✅ <span style="color: var(--optionB);">Option B</span> — Make only the letters you need for your title word(s)';
+    result.style.color = 'var(--optionB)';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
